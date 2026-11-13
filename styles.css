@@ -34,8 +34,15 @@
   text-decoration: none;
 }
 
-.whatsapp-float:hover {
-  background: #54e786;
+@media (hover: hover) and (pointer: fine) {
+  .whatsapp-float:hover {
+    background: #54e786;
+    box-shadow: inset 0 1px 0 #d5ffe599, 0 7px 0 #087438, 0 16px 26px #000b;
+  }
+}
+
+.whatsapp-float:active {
+  box-shadow: inset 0 1px 0 #d5ffe588, 0 2px 0 #087438, 0 5px 12px #0008;
 }
 
 .whatsapp-float:focus-visible {
@@ -53,7 +60,7 @@
     animation: orb-appear 1.2s ease-out both;
   }
 
-  :where(.navbtn, .primary, .secondary, .whatsapp-float):active {
+  :where(.navbtn, .primary, .secondary):active {
     transform: perspective(600px) translateZ(-12px) scale(.98);
   }
 
@@ -64,21 +71,21 @@
 }
 
 @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
-  :is(.navbtn, .primary, .secondary, .whatsapp-float, .hero-card, .problem-grid > div, .lesson-card, .resource) {
+  :is(.navbtn, .primary, .secondary, .hero-card, .problem-grid > div, .lesson-card, .resource) {
     transition: transform 220ms cubic-bezier(.2, .7, .3, 1), box-shadow 220ms ease,
       border-color 220ms ease, background-color 220ms ease;
   }
 
-  :is(.navbtn, .primary, .secondary, .whatsapp-float):hover {
+  .whatsapp-float {
+    transition: background-color 180ms ease, box-shadow 180ms ease;
+  }
+
+  :is(.navbtn, .primary, .secondary):hover {
     transform: perspective(600px) translateY(-3px) rotateX(12deg) translateZ(12px);
     box-shadow: inset 0 1px 0 #e4f7ff77, 0 7px 0 #0a2136, 0 16px 26px #000b;
   }
 
-  .whatsapp-float:hover {
-    box-shadow: inset 0 1px 0 #d5ffe599, 0 7px 0 #087438, 0 16px 26px #000b;
-  }
-
-  :is(.navbtn, .primary, .secondary, .whatsapp-float):hover:active {
+  :is(.navbtn, .primary, .secondary):hover:active {
     transform: perspective(600px) translateZ(-12px) scale(.98);
     box-shadow: 0 2px 6px #0006;
   }
